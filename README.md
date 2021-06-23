@@ -7,7 +7,6 @@ https://drive.google.com/file/d/1aUNGKZChFn7y3sRkEWXIMjtX6wG2Phr1/view?usp=shari
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _YAML____ file may be used to install only certain pieces of it, such as Filebeat.
 
-
 elk-playbook.yml
 
 ---
@@ -16,27 +15,27 @@ elk-playbook.yml
   remote_user: azadmin
   become: true
   tasks:
-    # Use apt module
+
     - name: Install docker.io
       apt:
         update_cache: yes
         name: docker.io
         state: present
 
-      # Use apt module
+      
     - name: Install pip3
       apt:
         force_apt_get: yes
         name: python3-pip
         state: present
 
-      # Use pip module
+      
     - name: Install Docker python module
       pip:
         name: docker
         state: present
 
-      # Use sysctl module
+      
     - name: Use more memory
       sysctl:
         name: vm.max_map_count
@@ -44,7 +43,7 @@ elk-playbook.yml
         state: present
         reload: yes
 
-      # Use docker_container module
+      
     - name: download and launch a docker elk container
       docker_container:
         name: elk
@@ -56,7 +55,7 @@ elk-playbook.yml
           - 9200:9200
           - 5044:5044
 
-      # Use systemd module
+      
     - name: Enable service docker on boot
       systemd:
         name: docker
