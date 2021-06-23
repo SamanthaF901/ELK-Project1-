@@ -10,14 +10,14 @@ These files have been tested and used to generate a live ELK deployment on Azure
 elk-playbook.yml
 https://drive.google.com/file/d/1sK9uKU83MXLaNI5KuaqgoR_ftZ29wPDV/view?usp=sharing 
 
-This Document contains the following details:
-
- -Description of the Topology
- -Access Policies 
- -ELK Configuration
+This document contains the following details:
+- Description of the Topologu
+- Access Policies
+- ELK Configuration
   - Beats in Use
-  - Machines Being Monitored 
- -How to use the Ansible Build 
+  - Machines Being Monitored
+- How to Use the Ansible Build
+
 
 ### Description of the Topology
 
