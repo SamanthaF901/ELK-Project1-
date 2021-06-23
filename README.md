@@ -8,69 +8,7 @@ https://drive.google.com/file/d/1aUNGKZChFn7y3sRkEWXIMjtX6wG2Phr1/view?usp=shari
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _YAML____ file may be used to install only certain pieces of it, such as Filebeat.
 
 elk-playbook.yml
-
----
-- name: Configure Elk VM with Docker
-  hosts: elk
-  remote_user: azadmin
-  become: true
-  tasks:
-
-    - name: Install docker.io
-      apt:
-        update_cache: yes
-        name: docker.io
-        state: present
-
-      
-    - name: Install pip3
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
-
-      
-    - name: Install Docker python module
-      pip:
-        name: docker
-        state: present
-
-      
-    - name: Use more memory
-      sysctl:
-        name: vm.max_map_count
-        value: "262144"
-        state: present
-        reload: yes
-
-      
-    - name: download and launch a docker elk container
-      docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
-        published_ports:
-          - 5601:5601
-          - 9200:9200
-          - 5044:5044
-
-      
-    - name: Enable service docker on boot
-      systemd:
-        name: docker
-        enabled: yes
-
-
-
-
-This document contains the following details:
-- Description of the Topologu
-- Access Policies
-- ELK Configuration
-  - Beats in Use
-  - Machines Being Monitored
-- How to Use the Ansible Build
+https://drive.google.com/file/d/1sK9uKU83MXLaNI5KuaqgoR_ftZ29wPDV/view?usp=sharing 
 
 
 ### Description of the Topology
