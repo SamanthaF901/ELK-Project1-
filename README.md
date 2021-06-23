@@ -8,6 +8,7 @@ https://drive.google.com/file/d/1aUNGKZChFn7y3sRkEWXIMjtX6wG2Phr1/view?usp=shari
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _YAML____ file may be used to install only certain pieces of it, such as Filebeat.
 
 elk-playbook.yml
+
 https://drive.google.com/file/d/1sK9uKU83MXLaNI5KuaqgoR_ftZ29wPDV/view?usp=sharing 
 
 This document contains the following details:
