@@ -9,8 +9,6 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 elk-playbook.yml
 
-https://drive.google.com/file/d/1sK9uKU83MXLaNI5KuaqgoR_ftZ29wPDV/view?usp=sharing 
-
 This document contains the following details:
 - Description of the Topologu
 - Access Policies
