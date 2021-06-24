@@ -24,14 +24,15 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _protected____, in addition to restricting _access____ to the network.
+Load balancing ensures that the application will be highly protected, in addition to restricting access to the network.
 - _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
-Load balancers protects the system from DDoS attacks by shifting attack traffic. The advantage of a jump box is to give access to the user from a single node that can be secured and monitored.
+Load balancers protect the network system from DDos attacks. The advantage of a jump box is to provide additional security. 
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _jumpbox____ and system _network____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the jumpbox and system network.
 - _TODO: What does Filebeat watch for?_
-Filebeat watches for file changes on the machine.
+
+Filebeat watches for any file changes on the machine.
 
 - _TODO: What does Metricbeat record?_
 Metricbeat collects metrics from the operating system and from the services running on the server.
@@ -41,11 +42,10 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 | Name     | Function  | IP Address | Operating System |
 |----------|---------- |------------|------------------|
-| Jump Box | Gateway   | 10.0.0.0   | Linux            |
+| Jump Box | Gateway   | 10.0.0.4   | Linux            |
 | Web-1    | Webserver | 10.0.0.5   | Linux            |                  
 | Web-2    | Webserver | 10.0.0.6   | Linux            |                  
 | ELK-VM   | Webserver | 10.1.0.4   | Linux            |                  
-
 
 ### Access Policies
 
@@ -71,11 +71,12 @@ A summary of the access policies in place can be found in the table below.
 | Web-2    | NO                  |   20.185.244.244     |
 | ELK-VM   | NO                  |   20.185.244.244     |
 
-
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - _TODO: What is the main advantage of automating configuration with Ansible?_
+
+The main advantage of using Ansible is that it is a free and user friendly tool that simplifies several tasks such as application installation and configuration. 
 
 
 The playbook implements the following tasks:
@@ -85,7 +86,7 @@ The playbook implements the following tasks:
 -	Install pip3
 -	Install docker python module
 -	Increase virtual memory
--	Download and launch a docker
+-	Download and launch a docker container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -101,22 +102,35 @@ Web-2  10.0.0.6
 We have installed the following Beats on these machines:
 - _TODO: Specify which Beats you successfully installed_
 
+Filebeats
+
+Metricbeats
+
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
 
-Microbeats
+Filebeats collects data about the file system.
+
+Metricbeats collects machine metrics.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _playbook____ file to _Ansible Control Node____.
-- Update the _hosts____ file to include...
-- Run the playbook, and navigate to _Kibana___ to check that the installation worked as expected.
+- Copy the YAML file to /etc/ansible/.
+- Update the hosts file to include host group and ip address
+- Run the playbook, and navigate to curl localhost/setup.php to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
+
+pentest.yml
+
+/etc/ansible/
+
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+
+Update the /etc/ansible/hosts file to run the playbook on a specific machine.
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+http://[YourVMip]:5601/app/kibana 
